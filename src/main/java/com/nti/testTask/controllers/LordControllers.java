@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Контроллер отвечающий за обработку всех запросов в приложении
+ */
 @RestController
 public class LordControllers {
 

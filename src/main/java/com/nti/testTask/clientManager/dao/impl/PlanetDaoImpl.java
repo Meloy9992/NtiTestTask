@@ -7,8 +7,19 @@ import org.springframework.stereotype.Repository;
 
 import static com.nti.testTask.utils.HibernateUtil.getSessionFactory;
 
+/**
+ * Доступ к данным Planet
+ */
+
 @Repository
 public class PlanetDaoImpl implements PlanetDao {
+
+    /**
+     * Добавление новой Планеты
+     *
+     * @param namePlanet Название планеты
+     * @return Возвращает созданную планету
+     */
     @Override
     public Planet addNewPlanet(String namePlanet) {
         Session session = getSessionFactory().openSession();
@@ -20,6 +31,11 @@ public class PlanetDaoImpl implements PlanetDao {
         return planet;
     }
 
+    /**
+     * Удаление Планеты
+     *
+     * @param idPlanet Id Планеты
+     */
     @Override
     public void deletePlanet(long idPlanet) {
         Session session = getSessionFactory().openSession();
@@ -29,6 +45,12 @@ public class PlanetDaoImpl implements PlanetDao {
         session.close();
     }
 
+    /**
+     * Получение Планеты по Id
+     *
+     * @param id Id Планеты
+     * @return Возвращает полученную планету
+     */
     @Override
     public Planet getById(long id) {
         Session session = getSessionFactory().openSession();

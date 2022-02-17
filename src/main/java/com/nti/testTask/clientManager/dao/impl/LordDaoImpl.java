@@ -16,12 +16,24 @@ import java.util.List;
 
 import static com.nti.testTask.utils.HibernateUtil.getSessionFactory;
 
+/**
+ * Доступ к данным Lord
+ */
+
 @Repository
 public class LordDaoImpl implements LordDao {
 
     @Autowired
     private PlanetDao planetDao;
 
+
+    /**
+     * Добавляет нового пользователя в базу данных
+     *
+     * @param name Имя Повелителя
+     * @param age  Возраст Повелителя
+     * @return Возвращает повелителя
+     */
     @Override
     public Lord addNewLord(String name, long age) {
         Session session = getSessionFactory().openSession();
@@ -33,6 +45,12 @@ public class LordDaoImpl implements LordDao {
         return lord;
     }
 
+    /**
+     * Назначение Повелителя управлять Планетой
+     *
+     * @param idLord   Id Повелителя
+     * @param idPlanet Id Планеты
+     */
     @Override
     public void appointLord(long idLord, long idPlanet) {
         Session session = getSessionFactory().openSession();
@@ -49,6 +67,11 @@ public class LordDaoImpl implements LordDao {
         session.close();
     }
 
+    /**
+     * Поиск всех Повелителей без планет
+     *
+     * @return Возвращает список Повелителей без планет
+     */
     @Override
     public List<Lord> searchAllLordLazy() {
         Session session = getSessionFactory().openSession();
@@ -59,6 +82,11 @@ public class LordDaoImpl implements LordDao {
         return lords;
     }
 
+    /**
+     * Поиск топ 10 молодых Повелителей
+     *
+     * @return Возвращает список Повелителей
+     */
     @Override
     public List<Lord> searchTopTenYoungLords() {
         Session session = getSessionFactory().openSession();
@@ -70,6 +98,12 @@ public class LordDaoImpl implements LordDao {
         return lords;
     }
 
+    /**
+     * Получение Повелителя по Id
+     *
+     * @param id Id Повелителя
+     * @return Возвращает созданного Повелителя
+     */
     @Override
     public Lord getById(long id) {
         Session session = getSessionFactory().openSession();
