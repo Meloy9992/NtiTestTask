@@ -16,9 +16,9 @@ public class Lord {
     private String name;
 
     @Column(name = "age")
-    private int age;
+    private long age;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "lord")
     private List<Planet> planets;
 
     public void setId(long id) {
@@ -37,11 +37,11 @@ public class Lord {
         this.name = name;
     }
 
-    public int getAge() {
+    public long getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(long age) {
         this.age = age;
     }
 
@@ -53,12 +53,17 @@ public class Lord {
         this.planets = planets;
     }
 
-    public Lord(String name, int age, List<Planet> planets) {
+    public Lord(String name, long age, List<Planet> planets) {
         this.name = name;
         this.age = age;
         this.planets = planets;
     }
 
     public Lord() {
+    }
+
+    public Lord(String name, long age) {
+        this.name = name;
+        this.age = age;
     }
 }

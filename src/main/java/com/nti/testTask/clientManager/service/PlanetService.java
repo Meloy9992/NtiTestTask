@@ -1,4 +1,11 @@
 package com.nti.testTask.clientManager.service;
 
-public class PlanetService {
+import com.nti.testTask.clientManager.models.Planet;
+
+public interface PlanetService {
+    Planet addNewPlanet(String namePlanet);
+
+    void deletePlanet(long idPlanet);
+
+    Planet getById(long id);
 }

@@ -1,5 +1,7 @@
 package com.nti.testTask.clientManager.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,7 @@ public class Planet {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_lord")
+    @JsonIgnore
     private Lord lord;
 
     public long getId() {
@@ -49,5 +52,14 @@ public class Planet {
     }
 
     public Planet() {
+    }
+
+    public Planet(String title, Lord lord) {
+        this.title = title;
+        this.lord = lord;
+    }
+
+    public Planet(String title) {
+        this.title = title;
     }
 }

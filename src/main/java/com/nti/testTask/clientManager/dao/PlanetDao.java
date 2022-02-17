@@ -1,7 +1,11 @@
 package com.nti.testTask.clientManager.dao;
 
-public interface Planet {
-    void addNewPlanet(long idLord, String namePlanet);
+import com.nti.testTask.clientManager.models.Planet;
+
+public interface PlanetDao {
+    Planet addNewPlanet(String namePlanet);
+
     void deletePlanet(long idPlanet);
-    
+
+    Planet getById(long id);
 }
