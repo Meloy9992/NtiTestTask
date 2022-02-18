@@ -5,7 +5,7 @@ import com.nti.testTask.clientManager.models.Planet;
 public interface PlanetDao {
     Planet addNewPlanet(String namePlanet);
 
-    void deletePlanet(long idPlanet);
+    boolean deletePlanet(long idPlanet);
 
     Planet getById(long id);
 }

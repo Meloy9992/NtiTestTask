@@ -15,6 +15,10 @@ public class PlanetServiceImpl implements PlanetService {
     @Autowired
     private PlanetDao planetDao;
 
+    public PlanetServiceImpl(PlanetDao planetDao) {
+        this.planetDao = planetDao;
+    }
+
     /**
      * Добавление новой Планеты
      *
@@ -32,8 +36,8 @@ public class PlanetServiceImpl implements PlanetService {
      * @param idPlanet Id Планеты
      */
     @Override
-    public void deletePlanet(long idPlanet) {
-        planetDao.deletePlanet(idPlanet);
+    public boolean deletePlanet(long idPlanet) {
+        return planetDao.deletePlanet(idPlanet);
     }
 
     /**

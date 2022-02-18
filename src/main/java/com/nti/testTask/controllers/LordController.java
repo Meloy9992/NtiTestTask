@@ -17,13 +17,13 @@ import java.util.List;
  * Контроллер отвечающий за обработку всех запросов в приложении
  */
 @RestController
-public class LordControllers {
+public class LordController {
 
     private LordService lordService;
     private PlanetService planetService;
 
     @Autowired
-    public LordControllers(LordService lordService, PlanetService planetService) {
+    public LordController(LordService lordService, PlanetService planetService) {
         this.lordService = lordService;
         this.planetService = planetService;
     }
@@ -58,8 +58,8 @@ public class LordControllers {
     }
 
     @DeleteMapping("/delete/planet")
-    public ResponseEntity<Long> deletePlanet(@RequestParam long idPlanet) {
-        planetService.deletePlanet(idPlanet);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Boolean> deletePlanet(@RequestParam long idPlanet) {
+       boolean isDelete = planetService.deletePlanet(idPlanet);
+        return new ResponseEntity<>(isDelete,HttpStatus.OK);
     }
 }

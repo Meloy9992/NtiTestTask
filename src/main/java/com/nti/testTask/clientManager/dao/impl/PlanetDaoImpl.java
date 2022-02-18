@@ -37,12 +37,18 @@ public class PlanetDaoImpl implements PlanetDao {
      * @param idPlanet Id Планеты
      */
     @Override
-    public void deletePlanet(long idPlanet) {
-        Session session = getSessionFactory().openSession();
-        session.beginTransaction();
-        session.delete(getById(idPlanet));
-        session.getTransaction().commit();
-        session.close();
+    public boolean deletePlanet(long idPlanet) {
+        try {
+            Session session = getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(getById(idPlanet));
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        }
+        catch (Exception exception){
+            return false;
+        }
     }
 
     /**

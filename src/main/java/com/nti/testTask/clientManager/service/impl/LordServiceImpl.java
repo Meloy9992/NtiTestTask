@@ -14,8 +14,12 @@ import java.util.List;
 @Service
 public class LordServiceImpl implements LordService {
 
-    @Autowired
     private LordDao lordDao;
+
+    @Autowired
+    public LordServiceImpl(LordDao lordDao) {
+        this.lordDao = lordDao;
+    }
 
     /**
      * Добавляет нового пользователя в базу данных
@@ -70,4 +74,5 @@ public class LordServiceImpl implements LordService {
     public Lord getById(long id) {
         return lordDao.getById(id);
     }
+
 }
