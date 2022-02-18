@@ -34,7 +34,7 @@ class PlanetServiceImplTest {
     @Test
     void deletePlanet(){
         PowerMockito.when(planetDao.deletePlanet(Mockito.anyLong())).thenReturn(true);
-        boolean isDelete = planetService.deletePlanet(4);
+        boolean isDelete = planetService.deletePlanet(4); 
         Assert.assertTrue(isDelete);
 
     }
